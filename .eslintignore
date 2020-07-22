@@ -12,5 +12,6 @@ next.config.js
 /node_modules/**
 /dist/**
 /src/webpack/**
+/src/generated
 
 # Add any other files or folders that you want eslint to ignore

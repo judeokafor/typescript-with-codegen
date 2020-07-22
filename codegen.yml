@@ -1,0 +1,27 @@
+overwrite: true
+schema: 'https://staging-ligare-backend.herokuapp.com/'
+documents: 
+  - "src/**/*.graphql.ts"
+  - "!*.generated.graphql"
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      withHooks: true
+      withHOC: false
+      withComponent: false
+      withRefetchFn: false
+      immutableTypes: true
+
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+    
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
+
+      
